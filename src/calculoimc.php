@@ -25,36 +25,32 @@
 <?php
   if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["imc"])) {
     $imc = $_POST["imc"];
+
     if(is_numeric($imc)) {
       $imc_float = floatval($imc);
       calcImc($imc_float);
     } else {
-      echo 'Por favor, digite um valor válido!';
+      echo '<p class="result-message" style="color:#ef4444;">Por favor, digite um valor válido!</p>';
     }
   }
 
   function calcImc($imc) {
     $faixas_imc = [
-      "Magreza" => [0, 18.5], 
-      "Saudável" => [18.51, 24.9], 
-      "Sobrepeso" => [25.0, 29.9], 
-      "Obesidade Grau I" => [30.0, 34.9], 
-      "Obesidade Grau II" => [35.0, 39.9], 
-      "Obesidade Grau III" => [39.9]
+    "Magreza" => [0, 18.5],
+    "Saudável" => [18.51, 24.9],
+    "Sobrepeso" => [25.0, 29.9],
+    "Obesidade Grau I" => [30.0, 34.9],
+    "Obesidade Grau II" => [35.0, 39.9],
+    "Obesidade Grau III" => [39.91, 999.99] 
     ];
 
     foreach($faixas_imc as $faixa_key => $faixa_valor) {
       if($imc >= $faixa_valor[0] && $imc <= $faixa_valor[1]) {
-        $faixa = $faixa_key;
-
-        echo "<p>Atenção, seu IMC é <span>$imc</span>, e você está classificado como <span>$faixa</span></p>";
+        echo "<p class='result-message'>Atenção, seu IMC é <span>" . number_format($imc, 2, '.', '') . "</span>, e você está classificado como <span>$faixa_key</span></p>";
         return;
-      } else if($imc > $faixa_valor[1]) {
-        $ultima_faixa = array_key_last($faixas_imc);
-        echo "<p>Atenção, seu IMC é <span>$imc</span>, e você está classificado como <span>$ultima_faixa</span></p>";
-        return;
-      }
-      
+      } 
     }
-  }  
+
+    echo '<p class="result-message" style="color:#ef4444;">IMC fora das faixas de classificação.</p>';
+  }
 ?>
