@@ -64,4 +64,4 @@ com sobrepeso”
 ### autor
 
 nome: Vinicius Pereira de Souza \
-[link do projeto no github](https://github.com/anacquesta/PTI-Linguagens-de-Servidor)
+[link do projeto no github](https://github.com/vinicius-pereira-souza/linguagens-de-servidor-pti)
