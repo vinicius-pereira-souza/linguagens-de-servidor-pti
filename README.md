@@ -60,8 +60,3 @@ D) A função deverá descobrir (classificar) a que faixa IMC o número passado 
 Se o valor recebido n = 25.30, será mostrado na tela a
 mensagem “Atenção, seu IMC é 25.30, e você está classificado
 com sobrepeso”
-
-### autor
-
-nome: Vinicius Pereira de Souza \
-[link do projeto no github](https://github.com/vinicius-pereira-souza/linguagens-de-servidor-pti)
